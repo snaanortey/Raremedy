@@ -57,6 +57,13 @@ function dobRelatedHistory() {
     .request(options)
     .then(function (response) {
       const historyItems = response.data.data.slice(0, 2);
+      for (const historyItem of historyItems) {
+        // Create li item in DOM
+        const liEl = document.createElement("li");
+        liEl.innerText = historyItem.event;
+        // Set the innertext to historyItem property
+        document.getElementById("dobHistory").appendChild(liEl);
+      }
       console.log(historyItems);
     })
     .catch(function (error) {
@@ -88,7 +95,49 @@ function generateJokes() {
     });
 }
 
-displayUserDetails();
+function getAndDisplayJoke() {
+  const options = {
+    method: "GET",
+    url: "https://joke-generator.p.rapidapi.com/generate-joke",
+    headers: {
+      "X-RapidAPI-Key": "ad9580bfa8msh7e9a52e0772d196p1036bbjsn8184ad81a005",
+      "X-RapidAPI-Host": "joke-generator.p.rapidapi.com",
+    },
+  };
 
-// displayNameMeaning();
-// dobRelatedHistory();
+  // call api to get joke
+  axios
+    .request(options)
+    .then(function (response) {
+      // take the joke and insert it into the joke container
+      document.getElementById("jokeTitle").innerText = response.data.title;
+      document.getElementById("jokeContainer").innerText =
+        response.data.content;
+    })
+    .catch(function (error) {
+      // handle failure of joke api response
+      document.getElementById(
+        "jokeContainer"
+      ).innerText = `Joke load failed ${error.message}`;
+    });
+}
+
+function startup() {
+  displayUserDetails();
+
+  displayNameMeaning();
+  // dobRelatedHistory();
+
+  // call other startup tasks
+
+  // register modal handler for each modal
+  // fetch the first joke when the modal is shown
+  const sadModal = document.getElementById("sadModal");
+  sadModal.addEventListener("shown.bs.modal", getAndDisplayJoke);
+
+  // fetch a new joke when the button is clicked
+  const getAnotherJokeButton = document.getElementById("showAnotherJoke");
+  getAnotherJokeButton.addEventListener("click", getAndDisplayJoke);
+}
+
+startup();
