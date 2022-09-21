@@ -53,7 +53,7 @@
         <div class="row">
           <div class="col-12 mx-auto">
             <div class="mt-n8 mt-md-n9 text-center">
-              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="../assets/img/bruce-mars.jpg"
+              <img class="avatar avatar-xxl shadow-xl position-relative z-index-2" src="https://xsgames.co/randomusers/avatar.php?g=pixel"
                 alt="bruce" loading="lazy">
             </div>
             <div class="row py-5">
@@ -115,26 +115,7 @@
             </div>
           </div>
 
-          <div class="col-lg-3 col-sm-6">
-            <div class="card card-plain">
-              <div class="card-header p-0 position-relative">
-                <a id="jokes" class="d-block blur-shadow-image">
-                  <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe
-                      src="https://giphy.com/embed/d2lcHJTG5Tscg" width="100%" height="100%" style="position:absolute"
-                      frameBorder="0" class="giphy-embed" allowFullScreen>
-                    </iframe></div>
-                  <p><a href="https://giphy.com/gifs/blackish-anthony-anderson-dre-johnson-d2lcHJTG5Tscg">via GIPHY</a>
-                  </p>
-                </a>
-              </div>
-              <div class="card-body px-0">
-                <button type="button" class="btn bg-gradient-primary" data-bs-toggle="modal" data-bs-target="#moneyModal">
-                  Broke? Click above
-                </button>
-
-              </div>
-            </div>
-          </div>
+         
 
           <div class="col-lg-3 col-sm-6">
             <div class="card card-plain">
@@ -198,29 +179,7 @@
       </div>
     </div>
   </div>
-  <!-- /*Money Modal*/ -->
-  <div class="modal fade" id="moneyModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Your financial advice</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Society has put up so many boundaries, so many limitations on what’s right and wrong that it’s almost
-          impossible to get a pure thought out.
-          <br><br>
-          It’s like a little kid, a little boy, looking at colors, and no one told him what colors are good, before
-          somebody tells you you shouldn’t like pink because that’s for girls, or you’d instantly become a gay
-          two-year-old.
-        </div>
-        <div class="modal-footer justify-content-between">
-          <button type="button" class="btn bg-gradient-dark mb-0" data-bs-dismiss="modal">Close</button>
-          
-        </div>
-      </div>
-    </div>
-  </div>
+ 
   <!-- Motivation Modal -->
   <div class="modal fade" id="motivationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -228,14 +187,11 @@
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Your word of motivation</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" id="showAnotherMotivationalQuote" class="btn bg-gradient-primary mb-0">Show another motivational quote</button>
+        
         </div>
-        <div class="modal-body">
-          Society has put up so many boundaries, so many limitations on what’s right and wrong that it’s almost
-          impossible to get a pure thought out.
-          <br><br>
-          It’s like a little kid, a little boy, looking at colors, and no one told him what colors are good, before
-          somebody tells you you shouldn’t like pink because that’s for girls, or you’d instantly become a gay
-          two-year-old.
+        <div id="motivationQuote" class="modal-body">
+          
         </div>
         <div class="modal-footer justify-content-between">
           <button type="button" class="btn bg-gradient-dark mb-0" data-bs-dismiss="modal">Close</button>

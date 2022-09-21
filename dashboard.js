@@ -122,6 +122,26 @@ function getAndDisplayJoke() {
     });
 }
 
+// Motivational advice API
+function getMotivationalQuotes () {
+const options = {
+  method: 'POST',
+  url: 'https://motivational-quotes1.p.rapidapi.com/motivation',
+  headers: {
+    'content-type': 'application/json',
+    'X-RapidAPI-Key': 'ad9580bfa8msh7e9a52e0772d196p1036bbjsn8184ad81a005',
+    'X-RapidAPI-Host': 'motivational-quotes1.p.rapidapi.com'
+  },
+  data: '{"key1":"value","key2":"value"}'
+};
+
+axios.request(options).then(function (response) {
+  document.getElementById("motivationQuote").innerText =response.data;
+}).catch(function (error) {
+	console.error(error);
+});
+}
+
 function startup() {
   displayUserDetails();
 
@@ -138,6 +158,16 @@ function startup() {
   // fetch a new joke when the button is clicked
   const getAnotherJokeButton = document.getElementById("showAnotherJoke");
   getAnotherJokeButton.addEventListener("click", getAndDisplayJoke);
+
+  // register modal handler for each modal
+  // fetch the first motivational quote when the modal is shown
+  const motivationModal = document.getElementById("motivationModal");
+  motivationModal.addEventListener("shown.bs.modal", getMotivationalQuotes);
+
+  // fetch a new motivational quote when the button is clicked
+  const getAnotherMotivationalQuote = document.getElementById("showAnotherMotivationalQuote");
+  getAnotherMotivationalQuote.addEventListener("click", getMotivationalQuotes);
 }
+
 
 startup();
